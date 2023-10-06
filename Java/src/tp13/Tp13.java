@@ -75,7 +75,7 @@ public class Tp13 {
                System.out.println("Nacimiento: " + fecha);
                
                System.out.println("Apellido: " + resul.getBoolean("estado"));
-             
+             //s
            }
            */
            
