@@ -56,7 +56,7 @@ public class Tp13 {
            
            //Punto 6 Listar los datos de los alumnos con calificaciones superiores a 8.
            /*
-           String sql = "SELECT alumno.* FROM alumno JOIN inscripcion  ON (alumno.idAlumno = inscripcion.idInscripto) WHERE inscripcion.nota > 8";
+           String sql = "SELECT DISTINCT alumno.* FROM alumno JOIN inscripcion  ON (alumno.idAlumno = inscripcion.idAlumno) WHERE inscripcion.nota > 8";
            PreparedStatement lista = conex.prepareStatement(sql);
            
            ResultSet resul = lista.executeQuery();
@@ -75,16 +75,17 @@ public class Tp13 {
                System.out.println("Nacimiento: " + fecha);
                
                System.out.println("Apellido: " + resul.getBoolean("estado"));
-               
+             
            }
-*/
+           */
            
-           
+           //PUNTO 7. Desinscribir un alumno de una de la materias.
+           /*
            String sql = "DELETE FROM inscripcion WHERE idAlumno = 2 && idMateria = 3";
            PreparedStatement quitar = conex.prepareStatement(sql);
            
-           quitar.executeUpdate();
-           
+           quitar.executeUpdate();         
+           */
         } catch (ClassNotFoundException ex) {
            JOptionPane.showMessageDialog(null, "Error al cargar Driver");
         } catch(SQLException ex){
