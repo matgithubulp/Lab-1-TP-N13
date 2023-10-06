@@ -54,7 +54,7 @@ public class Tp13 {
            
            */
            
-           String sql = "SELECT * FROM alumno WHERE calificacion > 8";
+           String sql = "SELECT alumno.* FROM alumno JOIN inscripcion  ON (alumno.idAlumno = inscripcion.idInscripto) WHERE inscripcion.nota > 8";
            PreparedStatement lista = conex.prepareStatement(sql);
            
            ResultSet resul = lista.executeQuery();
@@ -62,11 +62,16 @@ public class Tp13 {
            while(resul.next()){
            
                System.out.println("ID: " + resul.getInt("idAlumno"));
+               
                System.out.println("DNI: " + resul.getInt("dni"));
+               
                System.out.println("Apellido: " + resul.getString("apellido"));
+               
                System.out.println("Nombre: " + resul.getString("nombre"));
+               
                LocalDate fecha = resul.getDate("fechaDeNacimiento").toLocalDate();
                System.out.println("Nacimiento: " + fecha);
+               
                System.out.println("Apellido: " + resul.getBoolean("estado"));
                
            }
