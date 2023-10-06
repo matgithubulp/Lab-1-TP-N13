@@ -1,22 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package tp13;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ejarq
- */
 public class Tp13 {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
         
         try {
@@ -48,8 +40,7 @@ public class Tp13 {
            PreparedStatement materia = conex.prepareStatement(sql);
            materia.executeUpdate();
            */
-           //hola
-           
+          
            //Inscribir a 3 alumnos en 2 materias cada uno PUNTO 5          
            /*
            
@@ -63,7 +54,22 @@ public class Tp13 {
            
            */
            
+           String sql = "SELECT * FROM alumno WHERE calificacion > 8";
+           PreparedStatement lista = conex.prepareStatement(sql);
            
+           ResultSet resul = lista.executeQuery();
+           
+           while(resul.next()){
+           
+               System.out.println("ID: " + resul.getInt("idAlumno"));
+               System.out.println("DNI: " + resul.getInt("dni"));
+               System.out.println("Apellido: " + resul.getString("apellido"));
+               System.out.println("Nombre: " + resul.getString("nombre"));
+               LocalDate fecha = resul.getDate("fechaDeNacimiento").toLocalDate();
+               System.out.println("Nacimiento: " + fecha);
+               System.out.println("Apellido: " + resul.getBoolean("estado"));
+               
+           }
            
         } catch (ClassNotFoundException ex) {
            JOptionPane.showMessageDialog(null, "Error al cargar Driver");
